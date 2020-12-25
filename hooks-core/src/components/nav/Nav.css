@@ -1,0 +1,70 @@
+.header {
+  top: 0;
+  position: sticky;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.header a {
+  text-decoration: none;
+  color: rgb(238, 53, 53);
+}
+.header > .header__linkActive {
+  color: lawngreen;
+}
+.body {
+  width: 100%;
+  min-height: 80vh;
+  padding: 30px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(78, 4, 4, 0.9),
+    rgba(54, 2, 78, 0.9)
+  );
+  color: #ffff;
+  /* text-align: center; */
+}
+input {
+  margin: 10px;
+  padding: 5px;
+  outline: none;
+}
+label {
+  width: 100px;
+  display: inline-block;
+}
+button {
+  background: linear-gradient(
+    to bottom right,
+    rgba(170, 185, 211, 0.5),
+    rgba(202, 143, 230, 0.4),
+    rgba(106, 124, 151, 0.5)
+  );
+  color: #ffff;
+  padding: 10px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  margin: 10px 0;
+  cursor: pointer;
+  outline-color: blueviolet;
+}
+button:hover {
+  background: #fff;
+  color: #111;
+}
+.footer {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(10, 69, 136, 0.9),
+    rgba(74, 11, 104, 0.9)
+  );
+  color: White;
+  padding: 20px;
+}

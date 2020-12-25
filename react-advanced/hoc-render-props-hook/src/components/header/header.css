@@ -1,0 +1,16 @@
+.nav {
+  position: sticky;
+  top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  background: #fff;
+  padding: 15px;
+  border-bottom: 1px solid rebeccapurple;
+}
+.black-bg {
+  box-shadow: 5px 5px 5px rgb(156, 151, 151);
+}
+.nav a {
+  text-decoration: none;
+}
