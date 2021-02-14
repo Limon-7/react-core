@@ -78,7 +78,7 @@ function UseState() {
   );
 }
 
-export default UseState;
+export default React.memo(UseState);
 
 // // use  default form
 // const useForm = (initialValues) => {

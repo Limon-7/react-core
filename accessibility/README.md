@@ -1,3 +1,7 @@
+### Pure component
+
+### State vs props
+
 #### Accessability
 
 #### forwardRef

@@ -59,7 +59,7 @@ const Header = () => {
     </div>
   );
 };
-export default Nav;
+export default React.memo(Nav);
 
 const Footer = () => {
   return (
