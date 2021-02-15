@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 function CountRender(value) {
-  const countRenderRef = useRef(1);
+  const countRenderRef = React.useRef(1);
 
-  // useEffect(function afterRender() {
+  // React.useEffect(function afterRender() {
   //   countRenderRef.current++;
   // });
   console.log(`${value}: ${countRenderRef.current++}`);

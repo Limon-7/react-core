@@ -6,10 +6,10 @@ import "./UseState.css";
 
 function UseState() {
   const [{ count1, count2 }, setCount] = useState({ count1: 0, count2: 10 });
-  const [{ email, password }, setValue] = useState({
-    email: "",
-    password: "12345",
-  });
+  // const [{ email, password }, setValue] = useState({
+  //   email: "",
+  //   password: "12345",
+  // });
   const [values, handleValues] = UseForm({ firstName: "limon", lastName: "" });
   const [formValues, setFormValue] = UseForm({
     email: "email",
@@ -17,10 +17,10 @@ function UseState() {
   });
   //
   const handleChange = (e) => {
-    setValue((currentState) => ({
-      ...currentState,
-      [e.target.name]: e.target.value,
-    }));
+    // setValue((currentState) => ({
+    //   ...currentState,
+    //   [e.target.name]: e.target.value,
+    // }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,29 +73,16 @@ function UseState() {
       </button>
       <h1>count1: {count1}</h1>
       <h1>count2: {count2}</h1>
-      <StopWatch />
+      {/* <StopWatch /> */}
     </div>
   );
 }
 
 export default React.memo(UseState);
 
-// // use  default form
-// const useForm = (initialValues) => {
-//   const [values, setValues] = useState(initialValues);
-//   console.log("Values,", values);
-//   return [
-//     values,
-//     (e) => {
-//       setValues({
-//         ...values,
-//         [e.target.name]: e.target.name,
-//       });
-//     },
-//   ];
-// };
 // make a custom form
 const CustomForm = (props) => {
+  const showPassword = false;
   return (
     <form onSubmit={props.handleSubmit}>
       <input
@@ -106,7 +93,7 @@ const CustomForm = (props) => {
       />
       <br />
       <input
-        type="password"
+        type={showPassword ? "password" : "text"}
         name="password"
         value={props.password}
         onChange={(e) => props.handleChange(e)}

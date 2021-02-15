@@ -10,14 +10,14 @@ const RenderPropsContainer = lazy(() =>
   import("../RenderProps/RenderPropsContainer")
 );
 const SyntheticEvent = lazy(() => import("../SyntheticEvent"));
-
+const SuspenseDemo = lazy(() => import("../suspense/SuspenseDemo"));
 function Header() {
   return (
     <>
       <div className="header">
         <Nav />
         <ErrorBoundary>
-          <Suspense fallback={<p>loading.....</p>}>
+          <Suspense fallback={<p>page is.....loading</p>}>
             <Switch>
               <Route exact path="/"></Route>
               <Route path="/hoc">
@@ -34,6 +34,9 @@ function Header() {
               </Route>
               <Route path="/reconciliation">
                 <Reconciliation />
+              </Route>
+              <Route path="/suspense">
+                <SuspenseDemo />
               </Route>
             </Switch>
           </Suspense>
@@ -62,6 +65,7 @@ const Nav = () => {
       <Link to="/hook">Hook</Link>
       <Link to="/event">SyntheticEvent</Link>
       <Link to="/reconciliation">Reconciliation</Link>
+      <Link to="/suspense">Suspense</Link>
     </div>
   );
 };

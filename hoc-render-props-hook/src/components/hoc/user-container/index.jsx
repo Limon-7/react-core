@@ -7,7 +7,7 @@ function UserContainer() {
   return (
     <div className="user-container">
       <UserList />
-      <UserProfile name="limon Malek" email="liibd7@gmail.com" />
+      <UserProfile name="Ms limon" email="limon@gmail.com" />
     </div>
   );
 }

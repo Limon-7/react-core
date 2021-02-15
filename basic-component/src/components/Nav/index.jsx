@@ -3,6 +3,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import FrowardRefClass from "../forwardRefDemo";
 import { ForwardRefHoc } from "../forwardRefHoc";
 import OuterClickHandle from "../outerclick";
+import PortalDemo from "../portals";
 import PureComponentDemo from "../PureComponent/PureComponentDemo";
 
 import "./nav.css";
@@ -23,6 +24,9 @@ function Nav() {
         <Route path="/purecomponent">
           <PureComponentDemo />
         </Route>
+        <Route path="/portal">
+          <PortalDemo />
+        </Route>
       </Switch>
     </div>
   );
@@ -34,6 +38,7 @@ const Header = () => {
       <Link to="/forwardRef">ForwardRef</Link>
       <Link to="/forwardRefcallback">forwardRefcallback</Link>
       <Link to="/purecomponent">purecomponent</Link>
+      <Link to="/portal">Portal</Link>
     </div>
   );
 };

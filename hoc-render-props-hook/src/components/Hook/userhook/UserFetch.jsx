@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function UserFetch(url, name, email) {
-  const [data, setData] = useState([]);
+  const [data, setData] = React.useState([]);
   const fetchData = async (url) => {
     try {
       const response = await fetch(url);
@@ -11,7 +11,7 @@ function UserFetch(url, name, email) {
       console.log(err.message);
     }
   };
-  useEffect(() => {
+  React.useEffect(() => {
     fetchData(url);
     return () => {
       //   cleanup

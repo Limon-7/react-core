@@ -8,7 +8,8 @@ function StopWatch() {
   useEffect(() => {
     return () => {
       console.log("intervalRef", intervalRef.current);
-      clearInterval(intervalRef.current).destroy();
+      clearInterval(intervalRef.current);
+      // clearInterval(intervalRef.current).destroy();
     };
   }, []);
   const handleClear = () => {

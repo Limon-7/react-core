@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function UseForm(initialState) {
   const [values, setValues] = useState(initialState);
-  //   console.log(values);
+  console.log("use-form:", values);
   return [
     values,
     (e) => {
