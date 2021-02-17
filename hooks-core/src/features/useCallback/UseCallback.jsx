@@ -11,9 +11,13 @@ export function UseCallback() {
     },
     [setCount]
   );
+  // without callback hooks
+  // const handleClick = (n) => {
+  //   setCount((c) => c + n);
+  // };
   return (
     <div className="">
-      {/* <MyChild increment={handleClick} /> */}
+      <MyChild increment={handleClick} />
       <div>{count}</div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {square.map((item) => {

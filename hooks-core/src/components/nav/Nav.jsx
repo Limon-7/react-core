@@ -9,6 +9,7 @@ import {
   UseState,
   ForwardRefContainer,
   UseLayoutEffect,
+  MemoDemo,
 } from "features";
 
 import "./Nav.css";
@@ -22,6 +23,7 @@ const route = [
   { path: "/usecallback", name: "UseCallBack", component: UseCallback },
   { path: "/usememo", name: "UseMemo", component: UseMemo },
   { path: "/forwardref", name: "ForwardRef", component: ForwardRefContainer },
+  { path: "/memo", name: "memo", component: MemoDemo },
 ];
 function Nav() {
   return (

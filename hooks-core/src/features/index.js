@@ -8,3 +8,4 @@ export { default as UseMemo } from "./useMemo/UseMemo";
 export { default as UseReducer } from "./useReducer/UseReducer";
 export { default as Home } from "./home/Home";
 export { default as ForwardRefContainer } from "./forwardRef/ForwardRefContainer";
+export { default as MemoDemo } from "./memoDemo/MemoDemo";

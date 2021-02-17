@@ -1,0 +1,13 @@
+.navbar ul {
+  padding-bottom: 30px;
+}
+.navbar ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.navbar ul li:first-child {
+  margin-left: 0px !important;
+}
+.navbar__auth {
+  cursor: pointer;
+}

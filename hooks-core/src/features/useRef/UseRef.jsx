@@ -1,6 +1,7 @@
 import { useFetch, UseForm } from "components";
 import { useEffect, useRef, useState } from "react";
 
+import "./userRef.css";
 function UseRef() {
   const [values, handleChange] = UseForm({
     email: "",
@@ -11,7 +12,8 @@ function UseRef() {
   const hello = useRef(() => console.log("hello"));
 
   const [showHello, setShowHello] = useState(true);
-
+  const useRef2 = useRef(1);
+  console.log("useRef2", useRef2);
   return (
     <div>
       <>
