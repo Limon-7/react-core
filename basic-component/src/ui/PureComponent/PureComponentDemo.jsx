@@ -9,27 +9,35 @@ export class PureComponentDemo extends React.PureComponent {
     };
   }
   handleClick = () => {
-    // setInterval(() => {
-    //   this.setState(() => ({
-    //     userArray: [...this.state.userArray],
-    //   }));
-    // }, 1000);
-    this.setState(
-      (prevState) => ({
-        count: prevState.count + 1,
-      })
-      //() => console.log("Render:", this.state.count)//this is a call back function.
-    );
+    this.myiterval = setInterval(() => {
+      this.setState(() => ({
+        userArray: [...this.state.userArray, 8],
+      }));
+    }, 1000);
+    // this.setState(
+    //   (prevState) => ({
+    //     count: prevState.count + 1,
+    //   })
+    //() => console.log("Render:", this.state.count)//this is a call back function.
+    // );
   };
-
+  componentWillUnmount() {
+    clearInterval(this.myiterval);
+  }
   render() {
-    console.log("Re-render-render:");
+    console.log("Re-render-render:", this.state.count);
     return (
       <div>
         <button onClick={() => this.handleClick()}>Click</button>
         <p>Count:{this.state.count}</p>
         <b>Array Length is: {this.state.userArray.length}</b>
         <Demo2 count={this.state.count} action={this.handleClick} />
+        <button
+          style={{ backgroundColor: "red", color: "white" }}
+          onClick={() => clearInterval(this.myiterval)}
+        >
+          Clear Interval
+        </button>
       </div>
     );
   }
@@ -46,7 +54,7 @@ class Demo2 extends React.PureComponent {
     return (
       <div>
         <p>Count:{this.props.count}</p>
-        <button onClick={() => this.props.action()}>Chaild Button</button>
+        <button onClick={() => this.props.action()}>Child Button</button>
       </div>
     );
   }

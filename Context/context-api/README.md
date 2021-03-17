@@ -6,7 +6,7 @@
    Create a context: We use **React.createContext()** to create context.
    Syntax:
 
-   ```
+   ```js
    const ThemeContext = React.createContext(DefaultValue).
 
    ```
@@ -27,7 +27,7 @@
    Syntax: Syntax is the same for both class components and functional components.
    **Class Component**
 
-   ```
+   ```js
    export class ThemeContextProvider extends Component{
     logic
     render(){
@@ -42,7 +42,7 @@
 
    **Functional Component**
 
-   ```
+   ```js
    export ThemeContextProvider=(props)=>{
     logic
     render(){
@@ -60,8 +60,8 @@
    A Consumer is a React component that subscribes to a certain context.
    Syntax:
 
-   ```
-    const ThemeConsumer=ThemeContext.Consumer;
+   ```js
+   const ThemeConsumer = ThemeContext.Consumer;
    ```
 
 6. ### How can we consume Context in React?
@@ -72,53 +72,49 @@
 
    - class component
 
-   ```
-    class Header extends Component{
-        render(){
-            return(
-                <ThemeConsumer>
-                    {(consume)=>{
-                        const{data}=consume;
-                        return(
-                            <p>{data}</p>
-                        )
-                    }}
-                </ThemeConsumer>
-            )
-        }
-    }
+   ```js
+   class Header extends Component {
+     render() {
+       return (
+         <ThemeConsumer>
+           {(consume) => {
+             const { data } = consume;
+             return <p>{data}</p>;
+           }}
+         </ThemeConsumer>
+       );
+     }
+   }
    ```
 
    - functional component:
 
-   ```
-   const Header=()=>{
-           return(
-               <ThemeConsumer>
-                   {(consume)=>{
-                       const{data}=consume;
-                       return(
-                           <p>{data}</p>
-                       )
-                   }}
-               </ThemeConsumer>
-           )
-   }
+   ```js
+   const Header = () => {
+     return (
+       <ThemeConsumer>
+         {(consume) => {
+           const { data } = consume;
+           return <p>{data}</p>;
+         }}
+       </ThemeConsumer>
+     );
+   };
    ```
 
    **NOTE** We can overcome traditional consumer ugly code using a HOC in the Context Component.
    In Context:
 
-   ```
-    export function WithThemeContextConsumer(Component) {
-    // geting the props from wrapper component
-    return function ConsumerRapper(props) {
-        return (
-            <ThemeContextConsumer>
-                {(value) => <Component {...props} contextValue={value} />}
-            </ThemeContextConsumer>
-        );
-    };
+   ```js
+   export function WithThemeContextConsumer(Component) {
+     // geting the props from wrapper component
+     return function ConsumerRapper(props) {
+       return (
+         <ThemeContextConsumer>
+           {(value) => <Component {...props} contextValue={value} />}
+         </ThemeContextConsumer>
+       );
+     };
    }
    ```
 
@@ -126,71 +122,61 @@
 
    - Class Component
 
-   ```
-   class Header extends Component{
-           render(){
-                const{data}=this.props.contextValue;
-               return(
-                   <p>{data}</p>
-               )
-           }
-    }
-    export default WithThemeContextConsumer(Header)
+   ```js
+   class Header extends Component {
+     render() {
+       const { data } = this.props.contextValue;
+       return <p>{data}</p>;
+     }
+   }
+   export default WithThemeContextConsumer(Header);
    ```
 
    - Functional component:
 
-   ```
-   const Header=(props)=>{
-       const{data}=props.contextValue;
-              return(
-                  <p>{data}</p>
-              )
-   }
-   export default WithThemeContextConsumer(Header)
+   ```js
+   const Header = (props) => {
+     const { data } = props.contextValue;
+     return <p>{data}</p>;
+   };
+   export default WithThemeContextConsumer(Header);
    ```
 
    2. Common Way:The most common way to access Context from a class component is via the static contextType. If you need the value from Context outside of render, or in a lifecycle method.
 
-   ```
-       class Header extends Component{
-           static contextType=ThemeContext; // ThemeContext=context name
-           render(){
-               const{data}=this.context;
-               return(
-                   <p>{data}</p>
-               )
-           }
-       }
+   ```js
+   class Header extends Component {
+     static contextType = ThemeContext; // ThemeContext=context name
+     render() {
+       const { data } = this.context;
+       return <p>{data}</p>;
+     }
+   }
    ```
 
    **Functional Component**
    In the function component, useContext(contextName) hooks use to consume context.
    Syntax:
 
-   ```
-   const Header=()=>{
-       const{data}=React.useContext(ThemeContext);
-       return(
-           <p>{data}</p>
-       )
-   }
+   ```js
+   const Header = () => {
+     const { data } = React.useContext(ThemeContext);
+     return <p>{data}</p>;
+   };
    ```
 
    **Or** We can add a consumer function in the context. Then just call the function instead of each time write consuming code.
    For example, in our ThemeContextProvider component create a consuming function.
 
-   ```
-   export const usethemeContext=()=>React.useContext(ThemeContext);
+   ```js
+   export const usethemeContext = () => React.useContext(ThemeContext);
    ```
 
    Then call this function in the functional component to pull the state.
 
-   ```
-   const Header=()=>{
-       const{data}=usethemeContext();
-       return(
-           <p>{data}</p>
-       )
-   }
+   ```js
+   const Header = () => {
+     const { data } = usethemeContext();
+     return <p>{data}</p>;
+   };
    ```

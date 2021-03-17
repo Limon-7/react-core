@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
-import FrowardRefClass from "../forwardRefDemo";
-import { ForwardRefHoc } from "../forwardRefHoc";
-import OuterClickHandle from "../outerclick";
-import PortalDemo from "../portals";
-import PureComponentDemo from "../PureComponent/PureComponentDemo";
+import FrowardRefClass from "../../../ui/forwardRefDemo";
+import { ForwardRefHoc } from "../../../ui/forwardRefHoc";
+import OuterClickHandle from "../../../ui/outerclick";
+import PortalDemo from "../../../ui/portals";
+import PureComponentDemo from "../../../ui/PureComponent/PureComponentDemo";
+import StateDemoContainer from "../../../ui/stateDemo/StateDemo";
 
 import "./nav.css";
 function Nav() {
@@ -27,6 +28,9 @@ function Nav() {
         <Route path="/portal">
           <PortalDemo />
         </Route>
+        <Route path="/state">
+          <StateDemoContainer />
+        </Route>
       </Switch>
     </div>
   );
@@ -39,6 +43,7 @@ const Header = () => {
       <Link to="/forwardRefcallback">forwardRefcallback</Link>
       <Link to="/purecomponent">purecomponent</Link>
       <Link to="/portal">Portal</Link>
+      <Link to="/state">State</Link>
     </div>
   );
 };

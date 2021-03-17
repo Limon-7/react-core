@@ -8,9 +8,13 @@ import "./RenderUserConatiner.css";
 function RenderUserConatiner(props) {
   return (
     <div className="user-container">
-      <RenderUser url="https://jsonplaceholder.typicode.com/users">
+      <RenderUser
+        url="https://jsonplaceholder.typicode.com/users"
+        children={(data) => <RenderUserList data={data} {...props} />}
+      />
+      {/* <RenderUser url="https://jsonplaceholder.typicode.com/users">
         {(data) => <RenderUserList data={data} {...props} />}
-      </RenderUser>
+      </RenderUser> */}
       <RenderUserWithFunctionalComponent
         url="https://jsonplaceholder.typicode.com/posts"
         render={(data) =>
@@ -18,7 +22,7 @@ function RenderUserConatiner(props) {
         }
       />
       {/* If we use render we must return render in renderprops component.retun(props.render(data))  */}
-      {/* If we use children we must return childer in renderprops component.return(props.children(data))  */}
+      {/* If we use children we must return childen in renderprops component.return(props.children(data))  */}
       {/* <RenderUserWithFunctionalComponent url="https://jsonplaceholder.typicode.com/posts">
         {(data) =>
           data ? <RenderUserProfile data={data} {...props} /> : <p>loading</p>
